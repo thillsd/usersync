@@ -113,6 +113,7 @@ def main(config: Dict) -> None:
 
         if success:
             logger.debug("Completed job. Exiting.")
+            break
 
         logger.error("Sleeping for an hour")
         time.sleep(SIXTY_MINUTES)
