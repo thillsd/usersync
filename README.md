@@ -14,7 +14,7 @@ Install python 3.8+:
 
 Install python dependancies:
 
-    pip install -U deserialize praw requests dotenv loguru
+    pip install -U deserialize praw requests python-dotenv loguru
 
 
 ## Configuration
