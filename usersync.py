@@ -85,7 +85,11 @@ def update_reddit(config: Dict) -> Optional[bool]:
             logger.debug(
                 f"Adding website user {user!r} to approved list. [{successfully_added}]"
             )
-            r.subreddit(config["subreddit"]).contributor.add(user)
+            try:
+                r.subreddit(config["subreddit"]).contributor.add(user)
+            except RedditAPIException as e:
+                reason = e.items[0].error_type
+                logger.debug(f"Skipped user {user!r} due to {reason!r}")
 
     for user in existing_reddit_approved_users:
         if user not in website_users:
